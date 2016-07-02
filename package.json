@@ -5,7 +5,8 @@
   "author": "Samer Buna",
   "license": "ISC",
   "scripts": {
-    "start": "node lib/index"
+    "start": "node lib/index",
+    "dev": "nodemon --exec node lib/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
   },
   "homepage": "https://github.com/reactjscamp/name-contests#readme",
   "dependencies": {
+    "express": "^4.14.0",
+    "express-graphql": "^0.5.3",
     "graphql": "^0.6.0",
     "mongodb": "^2.1.18",
     "pg": "^6.0.1"
