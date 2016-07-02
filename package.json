@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/reactjscamp/name-contests#readme",
   "dependencies": {
+    "graphql": "^0.6.0",
     "mongodb": "^2.1.18",
     "pg": "^6.0.1"
   },
