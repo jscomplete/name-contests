@@ -23,6 +23,7 @@
     "express": "^4.14.0",
     "express-graphql": "^0.5.3",
     "graphql": "^0.6.0",
+    "humps": "^1.1.0",
     "mongodb": "^2.1.18",
     "pg": "^6.0.1"
   },
