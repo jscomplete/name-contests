@@ -11,9 +11,9 @@ const UserType = require('./types/user');
 // The root query type is where in the data graph
 // we can start asking questions
 const RootQueryType = new GraphQLObjectType({
-  name: 'RootQueryType',
+  name: 'RootQuery',
 
-  fields: {
+  fields: () => ({
     me: {
       type: UserType,
       description: 'The current user identified by an api key',
@@ -24,14 +24,14 @@ const RootQueryType = new GraphQLObjectType({
         return loaders.usersByApiKeys.load(args.key);
       }
     }
-  }
+  })
 });
 
 const AddContestMutation = require('./mutations/add-contest');
 const AddNameMutation = require('./mutations/add-name');
 
 const RootMutationType = new GraphQLObjectType({
-  name: 'RootMutationType',
+  name: 'RootMutation',
 
   fields: () => ({
     AddContest: AddContestMutation,
