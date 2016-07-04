@@ -1,20 +1,6 @@
-const humps = require('humps');
-const _ = require('lodash');
+const { orderedFor } = require('../lib/util');
 
 module.exports = pgPool => {
-  const orderedFor = (rows, collection, field, singleObject) => {
-    // return the rows ordered for the collection
-    const data = humps.camelizeKeys(rows);
-    const inGroupsOfField = _.groupBy(data, field);
-    return collection.map(element => {
-      const elementArray = inGroupsOfField[element];
-      if (elementArray) {
-        return singleObject ? elementArray[0] : elementArray;
-      }
-      return singleObject ? {} : [];
-    });
-  };
-
   return {
     getUsersByIds(userIds) {
       return pgPool.query(`
