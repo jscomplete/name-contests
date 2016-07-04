@@ -45,34 +45,34 @@ create table votes (
     unique(name_id, created_by)
 );
 
-INSERT INTO "users" ("id","email","first_name","last_name","api_key")
+INSERT INTO "users" ("email","first_name","last_name","api_key")
 VALUES
-(1,E'samer@agilelabs.com',E'Samer',E'Buna',E'4242'),
-(2,E'creative@mind.com',E'Creative',E'Mind',E'0000');
+(E'samer@agilelabs.com',E'Samer',E'Buna',E'4242'),
+(E'creative@mind.com',E'Creative',E'Mind',E'0000');
 
-INSERT INTO "contests" ("id","code","title","description","status","created_by")
+INSERT INTO "contests" ("code","title","description","status","created_by")
 VALUES
-(1,E'free-programming-books-site',E'Free Programming Books Site',E'A list of free online programming books, categorized by languages/topics',E'draft',1),
-(2,E'visualize-most-popular-tweets',E'Visualize Most Popular Tweets',E'A site to constantly visualize the most popular tweets in your stream',E'published',1),
-(3,E'entrepreneurs-looknig-for-partnership',E'Interview Entrepreneurs Looking For Partnership',NULL,E'archived',1);
+(E'free-programming-books-site',E'Free Programming Books Site',E'A list of free online programming books, categorized by languages/topics',E'draft',1),
+(E'visualize-most-popular-tweets',E'Visualize Most Popular Tweets',E'A site to constantly visualize the most popular tweets in your stream',E'published',1),
+(E'entrepreneurs-looknig-for-partnership',E'Interview Entrepreneurs Looking For Partnership',NULL,E'archived',1);
 
-INSERT INTO "names" ("id","contest_id","label","normalized_label","description","created_by")
+INSERT INTO "names" ("contest_id","label","normalized_label","description","created_by")
 VALUES
-(1,1,E'RootLib',E'rootlib',E'The Root Library',2),
-(2,1,E'The Free List',E'thefreelist',NULL,2),
-(3,2,E'PopTweet',E'poptweet',NULL,2),
-(4,2,E'TwitterScope',E'twitterscope',NULL,2);
+(1,E'RootLib',E'rootlib',E'The Root Library',2),
+(1,E'The Free List',E'thefreelist',NULL,2),
+(2,E'PopTweet',E'poptweet',NULL,2),
+(2,E'TwitterScope',E'twitterscope',NULL,2);
 
-INSERT INTO "votes" ("id","name_id","up","created_by")
+INSERT INTO "votes" ("name_id","up","created_by")
 VALUES
-(10,1,TRUE,1),
-(11,1,TRUE,2),
-(12,2,TRUE,1),
-(13,2,FALSE,2),
-(14,3,FALSE,1),
-(15,3,FALSE,2),
-(16,4,TRUE,1),
-(17,4,TRUE,2);
+(1,TRUE,1),
+(1,TRUE,2),
+(2,TRUE,1),
+(2,FALSE,2),
+(3,FALSE,1),
+(3,FALSE,2),
+(4,TRUE,1),
+(4,TRUE,2);
 
 create view total_votes_by_name as
 select id as name_id,
