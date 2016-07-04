@@ -58,6 +58,20 @@ module.exports = pgPool => {
       `, [slug(title), title, description, apiKey]).then(res => {
         return humps.camelizeKeys(res.rows[0]);
       });
+    },
+
+    addNewName({ apiKey, contestId, label, description }) {
+      return pgPool.query(`
+        insert into names(contest_id, label, normalized_label,
+          description, created_by)
+        values ($1, $2, $3, $4,
+          (select id from users where api_key = $5))
+        returning *
+      `, [contestId, label, slug(label),
+          description, apiKey])
+      .then(res => {
+        return humps.camelizeKeys(res.rows[0]);
+      });
     }
   };
 };
