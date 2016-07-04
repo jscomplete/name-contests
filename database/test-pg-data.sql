@@ -1,3 +1,4 @@
+drop view total_votes_by_name;
 drop table if exists votes;
 drop table if exists names;
 drop table if exists contests;
